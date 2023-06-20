@@ -42,6 +42,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <script src="loginvalidate.js"></script>
     <link rel="stylesheet" href="style.css">
     <title>Login</title> 
 </head>
@@ -49,9 +50,7 @@
     
 
     
-    <?php if ($is_invalid): ?>
-        <em>Invalid login</em>
-    <?php endif; ?>
+  
 
     <form method = "POST" id = signup>
     <h1>Login</h1>
@@ -59,12 +58,19 @@
         <label for = "email" >Email</label>
         <input type="email" name="email" id="email"
                             value="<?= htmlspecialchars($_POST["email"] ?? "") ?>">
+                            <div class="error"></div>
     </div>
+
         
      <div class="input-control">
         <label for = "password" >Password</label>
         <input type="password" name="password" id="password">
+        <div class="error"></div>
      </div>
+
+     <?php if ($is_invalid): ?>
+        <div style= "color: red; font-style : italic;" >Username or password incorrect</div>
+    <?php endif; ?>
         <button>Log in</button>
         <p>Dont have an account? </p>
         <a href="signup.html">Sign up</a> 
