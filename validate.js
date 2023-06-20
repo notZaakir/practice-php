@@ -76,4 +76,14 @@ const validateInputs = () => {
     } else {
         setSuccess(password_confirmation);
     }
+    
+    
+    if (first_name.value && last_name.value && email.value && password.value && password_confirmation.value){
+      signup.submit();
+    }
+
+    
 };
+
+
+
