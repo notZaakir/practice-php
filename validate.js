@@ -5,11 +5,15 @@ const email = document.getElementById("email");
 const password = document.getElementById("password");
 const password_confirmation = document.getElementById("password_confirmation");
 
+
+
 signup.addEventListener('submit', e => {
     e.preventDefault();
 
     validateInputs();
 });
+
+
 
 const setError = (element, message) => {
     const inputControl = element.parentElement;
@@ -20,6 +24,8 @@ const setError = (element, message) => {
     inputControl.classList.remove("success")
 }
 
+let allInputsValid = false;
+
 const setSuccess = element => {
     const inputControl = element.parentElement;
     const errorDisplay = inputControl.querySelector(".error");
@@ -27,6 +33,10 @@ const setSuccess = element => {
     errorDisplay.innerText = "";
     inputControl.classList.add("success");
     inputControl.classList.remove("error");
+
+    const inputControls = document.querySelectorAll(".input-control");
+    const successControls = document.querySelectorAll(".input-control.success");
+    allInputsValid = inputControls.length === successControls.length;
 }
 
 const isValidEmail = email => {
@@ -78,8 +88,8 @@ const validateInputs = () => {
     }
     
     
-    if (first_name.value && last_name.value && email.value && password.value && password_confirmation.value){
-      signup.submit();
+    if (allInputsValid) {
+        signup.submit();
     }
 
     
