@@ -1,0 +1,17 @@
+body {
+    background: linear-gradient(to right, #0f270f, #20364b, #194e22);
+    font-family: 'Poppins', sans-serif;
+}
+
+#form {
+    width: 400px;
+    margin: 20vh auto 0 auto;
+    padding: 20px;
+    background-color: whitesmoke;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+#form h1{
+    
+}
